@@ -171,10 +171,16 @@ int main()
         std::swap(p3[i], p3[p3.size() - 1 - i]);
     }*/
 
-    std::sort(std::begin(p3), std::end(p3), [](int a, int b) {return a > b; });
-    std::cout << "3 максимальных элемента П3: " << p3[0] << " " << p3[1] << " " << p3[2] << std::endl;
-    std::cout << "Последовательность П3: " << std::endl;
-    print(p3);
+    //std::sort(std::begin(p3), std::end(p3), [](int a, int b) {return a > b; });
+    //std::cout << "3 максимальных элемента П3: " << p3[0] << " " << p3[1] << " " << p3[2] << std::endl;
+
+    std::sort(std::begin(p1), std::end(p1));
+    std::sort(std::begin(p2), std::end(p2));
+    std::cout << "Последовательность П1: " << std::endl;
+    print(p1);
+    std::cout << std::endl;
+    std::cout << "Последовательность П2: " << std::endl;
+    print(p2);
     std::cout << std::endl;
     return EXIT_SUCCESS;
 }
