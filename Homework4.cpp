@@ -7,7 +7,7 @@ void print(std::vector<int> v)
 {
     for (size_t i = 0; i < v.size(); i++)
     {
-        std::cout << v[i] << std::endl;
+        std::cout << v[i] << " ";
     }
 }
 
@@ -24,8 +24,9 @@ void repeat_remover(std::vector<int> &v, int n) // удаляем повторя
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    std::vector <int> p1;
-    for (size_t i = 0; i < 10; ++i)
+    //std::vector <int> p1;
+    std::vector<int> p1 = { 4, 6, 59, 8, 10};
+    /*for (size_t i = 0; i < 10; ++i)
     {
         p1.push_back(i + 1);
     }
@@ -38,7 +39,7 @@ int main()
         std::cout << "Введите " << i + 1 << "-ое число: " << std::endl;
         std::cin >> a;
         p1.push_back(a);
-    }
+    }*/
 
     std::cout << std::endl;
 
@@ -58,7 +59,7 @@ int main()
     //int odd_count = std::count_if(std::begin(p1), std::end(p1), [](int elem) {return elem % 2 == 1; });
     //std::cout << "Нечётных чисел в П1: " << odd_count << std::endl;
 
-    int p1_max = p1[0], p1_min = p1[0];
+    /*int p1_max = p1[0], p1_min = p1[0];
     for (size_t i = 0; i < p1.size(); i++)
     {
         if (p1[i] > p1_max)
@@ -71,7 +72,29 @@ int main()
         }
     }
     std::cout << "Максимальный элемент П1: " << p1_max << std::endl;
-    std::cout << "Минимальный элемент П1: " << p1_min << std::endl;
+    std::cout << "Минимальный элемент П1: " << p1_min << std::endl;*/
+
+    int detector = 0;
+    for (size_t i = 0; i < p1.size(); i++)
+    {
+        size_t count = 0;
+        for (int j = 1; j <= p1[i]; j++)
+        {
+            if (p1[i] % j == 0)
+            {
+                count++;
+            }
+        }
+        if (count <= 2)
+        {
+            std::cout << "Есть простое число: " << i + 1 << "-ый элемент - " << p1[i] << std::endl;
+            break;
+        }
+        else if (i == p1.size() - 1) 
+        {
+            std::cout << "Нет простых чисел" << std::endl;
+        }
+    }
 
     //std::cout << "Последовательность П1: " << std::endl;
     //print(p1);
