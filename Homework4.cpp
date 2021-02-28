@@ -54,8 +54,12 @@ int main()
     {
         repeat_remover(p1, p1[i]);
     }*/
-    std::cout << "Последовательность П1: " << std::endl;
-    print(p1);
+
+    int odd_count = std::count_if(std::begin(p1), std::end(p1), [](int elem) {return elem % 2 == 1; });
+    std::cout << "Нечётных чисел в П1: " << odd_count << std::endl;
+
+    //std::cout << "Последовательность П1: " << std::endl;
+    //print(p1);
     return EXIT_SUCCESS;
 }
 
