@@ -55,8 +55,23 @@ int main()
         repeat_remover(p1, p1[i]);
     }*/
 
-    int odd_count = std::count_if(std::begin(p1), std::end(p1), [](int elem) {return elem % 2 == 1; });
-    std::cout << "Нечётных чисел в П1: " << odd_count << std::endl;
+    //int odd_count = std::count_if(std::begin(p1), std::end(p1), [](int elem) {return elem % 2 == 1; });
+    //std::cout << "Нечётных чисел в П1: " << odd_count << std::endl;
+
+    int p1_max = p1[0], p1_min = p1[0];
+    for (size_t i = 0; i < p1.size(); i++)
+    {
+        if (p1[i] > p1_max)
+        {
+            p1_max = p1[i];
+        }
+        if (p1[i] < p1_min)
+        {
+            p1_min = p1[i];
+        }
+    }
+    std::cout << "Максимальный элемент П1: " << p1_max << std::endl;
+    std::cout << "Минимальный элемент П1: " << p1_min << std::endl;
 
     //std::cout << "Последовательность П1: " << std::endl;
     //print(p1);
