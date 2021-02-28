@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <clocale>
 #include <vector>
+#include <algorithm>
 
 int main()
 {
@@ -20,6 +21,8 @@ int main()
         std::cin >> a;
         p1.push_back(a);
     }
+
+    std::random_shuffle(std::begin(p1), std::end(p1)); // перемешиваем в случайном порядке
 
     //std::cout << "Последовательность П1: " << std::endl;
     //for (size_t i = 1; i < p1.size(); i++)
