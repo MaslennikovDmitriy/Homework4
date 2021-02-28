@@ -54,9 +54,9 @@ int main()
 
     std::cout << std::endl;
 
-    std::cout << "Последовательность П1: " << std::endl;
+    /*std::cout << "Последовательность П1: " << std::endl;
     print(p1);
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
 
     //std::random_shuffle(std::begin(p1), std::end(p1)); // перемешиваем в случайном порядке
@@ -144,12 +144,12 @@ int main()
     }
 
 
-    std::cout << "Последовательность П2: " << std::endl;
+    /*std::cout << "Последовательность П2: " << std::endl;
     print(p2);
     std::cout << std::endl;
     std::cout << "Последовательность П3: " << std::endl;
     print(p3);
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     /*int p3_count = std::count_if(std::begin(p3), std::end(p3), [](int elem) {return elem < 0; });
     for (size_t i = 0; i < p3_count; i++)
@@ -176,19 +176,20 @@ int main()
 
     std::sort(std::begin(p1), std::end(p1));
     std::sort(std::begin(p2), std::end(p2));
-    std::cout << "Последовательность П1: " << std::endl;
+    /*std::cout << "Последовательность П1: " << std::endl;
     print(p1);
     std::cout << std::endl;
     std::cout << "Последовательность П2: " << std::endl;
     print(p2);
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     std::vector<int> p4(p1.size() + p2.size());
     std::merge(p1.begin(), p1.end(), p2.begin(), p2.end(), p4.begin());
-    std::cout << "Последовательность П4: " << std::endl;
+    /*std::cout << "Последовательность П4: " << std::endl;
     print(p4);
+    std::cout << std::endl;*/
 
-    std::sort(p4.begin(), p4.end());
+    /*std::sort(p4.begin(), p4.end());
     size_t p4_counter = 0;
     for (size_t i = 0; i < p4.size(); i++)
     {
@@ -198,6 +199,19 @@ int main()
         }
     }
     std::cout << "Диапазон для упорядоченной вставки 1 в П4: " << p4_counter << std::endl;
+    std::cout << std::endl;*/
+
+    std::cout << "Последовательность П1: " << std::endl;
+    std::copy(std::begin(p1), std::end(p1), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << std::endl;
+    std::cout << "Последовательность П2: " << std::endl;
+    std::copy(std::begin(p2), std::end(p2), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << std::endl;
+    std::cout << "Последовательность П3: " << std::endl;
+    std::copy(std::begin(p3), std::end(p3), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << std::endl;
+    std::cout << "Последовательность П4: " << std::endl;
+    std::copy(std::begin(p4), std::end(p4), std::ostream_iterator<int>(std::cout, " "));
     std::cout << std::endl;
     return EXIT_SUCCESS;
 }
