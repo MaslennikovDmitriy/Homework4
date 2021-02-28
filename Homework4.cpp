@@ -105,9 +105,16 @@ int main()
         }
     }*/
 
-    std::for_each(std::begin(p1), std::end(p1), sqr_transform);
-    std::cout << "Последовательность П1: " << std::endl;
-    print(p1);
+    //std::for_each(std::begin(p1), std::end(p1), sqr_transform);
+
+    std::vector<int> p2(p1.size());
+    for (size_t i = 0; i < p2.size(); i++)
+    {
+        p2[i] = rand() % 100;
+    }
+
+    std::cout << "Последовательность П2: " << std::endl;
+    print(p2);
     return EXIT_SUCCESS;
 }
 
