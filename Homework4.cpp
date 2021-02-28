@@ -187,6 +187,17 @@ int main()
     std::merge(p1.begin(), p1.end(), p2.begin(), p2.end(), p4.begin());
     std::cout << "Последовательность П4: " << std::endl;
     print(p4);
+
+    std::sort(p4.begin(), p4.end());
+    size_t p4_counter = 0;
+    for (size_t i = 0; i < p4.size(); i++)
+    {
+        if (p4[i] <= 1)
+        {
+            p4_counter++;
+        }
+    }
+    std::cout << "Диапазон для упорядоченной вставки 1 в П4: " << p4_counter << std::endl;
     std::cout << std::endl;
     return EXIT_SUCCESS;
 }
