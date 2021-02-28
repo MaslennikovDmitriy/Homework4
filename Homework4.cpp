@@ -182,6 +182,12 @@ int main()
     std::cout << "Последовательность П2: " << std::endl;
     print(p2);
     std::cout << std::endl;
+
+    std::vector<int> p4(p1.size() + p2.size());
+    std::merge(p1.begin(), p1.end(), p2.begin(), p2.end(), p4.begin());
+    std::cout << "Последовательность П4: " << std::endl;
+    print(p4);
+    std::cout << std::endl;
     return EXIT_SUCCESS;
 }
 
