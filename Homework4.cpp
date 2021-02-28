@@ -136,12 +136,12 @@ int main()
     }
     std::for_each(std::begin(p2), std::end(p2) - p2.size() + N2, p2_transform);*/
 
-    //std::vector<int> p3(p2.size());
-    std::vector<int> p3 = {2, -87, 56, -90, -567, 345, 23452, -42, 0, -89, 56, -1};
-    //for (size_t i = 0; i < p3.size(); i++)
-    //{
-        //p3[i] = p2[i] - p1[i];
-    //}
+    std::vector<int> p3(p2.size());
+    //std::vector<int> p3 = {2, -87, 56, -90, -567, 345, 23452, -42, 0, -89, 56, -1};
+    for (size_t i = 0; i < p3.size(); i++)
+    {
+        p3[i] = p2[i] - p1[i];
+    }
 
 
     std::cout << "Последовательность П2: " << std::endl;
@@ -151,7 +151,7 @@ int main()
     print(p3);
     std::cout << std::endl;
 
-    int p3_count = std::count_if(std::begin(p3), std::end(p3), [](int elem) {return elem < 0; });
+    /*int p3_count = std::count_if(std::begin(p3), std::end(p3), [](int elem) {return elem < 0; });
     for (size_t i = 0; i < p3_count; i++)
     {
         auto it = std::find_if(std::begin(p3), std::end(p3), [](int elem) {return elem < 0; });
@@ -163,8 +163,14 @@ int main()
     p3.erase(std::remove_if(std::begin(p3), std::end(p3), [](int elem) {return elem == 0; }), std::end(p3));
     std::cout << "Последовательность П3: " << std::endl;
     print(p3);
+    std::cout << std::endl;*/
+    for (size_t i = 0; i < p3.size() / 2; i++)
+    {
+        std::swap(p3[i], p3[p3.size() - 1 - i]);
+    }
+    std::cout << "Последовательность П3: " << std::endl;
+    print(p3);
     std::cout << std::endl;
-
     return EXIT_SUCCESS;
 }
 
