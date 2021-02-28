@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
+#include <iterator>
 
 void print(std::vector<int> v)
 {
@@ -136,13 +137,16 @@ int main()
     }
     std::for_each(std::begin(p2), std::end(p2) - p2.size() + N2, p2_transform);*/
 
-    std::vector<int> p3(p2.size());
+    std::vector<int> p3(p1.size());
     //std::vector<int> p3 = {2, -87, 56, -90, -567, 345, 23452, -42, 0, -89, 56, -1};
-    for (size_t i = 0; i < p3.size(); i++)
-    {
-        p3[i] = p2[i] - p1[i];
-    }
+    //for (size_t i = 0; i < p3.size(); i++)
+    //{
+    //    p3[i] = p2[i] - p1[i]; // обычная разность
+    //}
 
+    std::sort(std::begin(p1), std::end(p1));
+    std::sort(std::begin(p2), std::end(p2));
+    std::set_difference(std::begin(p1), std::end(p1), std::begin(p2), std::end(p2), std::begin(p3)); // логическая разность
 
     /*std::cout << "Последовательность П2: " << std::endl;
     print(p2);
