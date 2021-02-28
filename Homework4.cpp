@@ -27,6 +27,11 @@ void sqr_transform(int &n)
     n = n * n;
 }
 
+void p2_transform(int& n)
+{
+    n = 1;
+}
+
 int main()
 {
     setlocale(LC_ALL, "Russian");
@@ -36,10 +41,10 @@ int main()
     {
         p1.push_back(i + 1);
     }
-    int N = 0;
+    int N1 = 0;
     std::cout << "Сколько чисел хотите ввести?" << std::endl;
-    std::cin >> N;
-    for (size_t i = 0; i < N; ++i)
+    std::cin >> N1;
+    for (size_t i = 0; i < N1; ++i)
     {
         int a = 0;
         std::cout << "Введите " << i + 1 << "-ое число: " << std::endl;
@@ -106,7 +111,9 @@ int main()
         }
     }*/
 
+
     //std::for_each(std::begin(p1), std::end(p1), sqr_transform);
+
 
     std::vector<int> p2(p1.size());
     for (size_t i = 0; i < p2.size(); i++)
@@ -114,8 +121,21 @@ int main()
         p2[i] = rand() % 100;
     }
 
-    int p2_sum = std::accumulate(std::begin(p2), std::end(p2), 0, [](int sum, int elem) {return sum += elem; });
-    std::cout << "Сумма элементов П2: " << p2_sum << std::endl;
+
+    //int p2_sum = std::accumulate(std::begin(p2), std::end(p2), 0, [](int sum, int elem) {return sum += elem; });
+    //std::cout << "Сумма элементов П2: " << p2_sum << std::endl;
+
+    
+    auto N2 = 0;
+    std::cout << "Сколько элементов хотите заменить?" << std::endl;
+    std::cin >> N2;
+    if (N2 > p2.size())
+    {
+        std::cerr << "Выход за границу последовательности" << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    std::for_each(std::begin(p2), std::end(p2) - p2.size() + N2, p2_transform);
 
     std::cout << "Последовательность П2: " << std::endl;
     print(p2);
