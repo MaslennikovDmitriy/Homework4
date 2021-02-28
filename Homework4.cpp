@@ -164,10 +164,15 @@ int main()
     std::cout << "Последовательность П3: " << std::endl;
     print(p3);
     std::cout << std::endl;*/
-    for (size_t i = 0; i < p3.size() / 2; i++)
+
+
+    /*for (size_t i = 0; i < p3.size() / 2; i++) // обратный порядок
     {
         std::swap(p3[i], p3[p3.size() - 1 - i]);
-    }
+    }*/
+
+    std::sort(std::begin(p3), std::end(p3), [](int a, int b) {return a > b; });
+    std::cout << "3 максимальных элемента П3: " << p3[0] << " " << p3[1] << " " << p3[2] << std::endl;
     std::cout << "Последовательность П3: " << std::endl;
     print(p3);
     std::cout << std::endl;
