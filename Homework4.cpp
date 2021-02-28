@@ -159,6 +159,11 @@ int main()
     }
     std::cout << "Последовательность П3: " << std::endl;
     print(p3);
+    std::cout << std::endl;
+    p3.erase(std::remove_if(std::begin(p3), std::end(p3), [](int elem) {return elem == 0; }), std::end(p3));
+    std::cout << "Последовательность П3: " << std::endl;
+    print(p3);
+    std::cout << std::endl;
 
     return EXIT_SUCCESS;
 }
