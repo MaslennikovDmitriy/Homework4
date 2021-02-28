@@ -126,7 +126,7 @@ int main()
     //std::cout << "Сумма элементов П2: " << p2_sum << std::endl;
 
     
-    auto N2 = 0;
+    /*auto N2 = 0;
     std::cout << "Сколько элементов хотите заменить?" << std::endl;
     std::cin >> N2;
     if (N2 > p2.size())
@@ -134,11 +134,19 @@ int main()
         std::cerr << "Выход за границу последовательности" << std::endl;
         return EXIT_FAILURE;
     }
+    std::for_each(std::begin(p2), std::end(p2) - p2.size() + N2, p2_transform);*/
 
-    std::for_each(std::begin(p2), std::end(p2) - p2.size() + N2, p2_transform);
+    std::vector<int> p3(p2.size());
+    for (size_t i = 0; i < p3.size(); i++)
+    {
+        p3[i] = p2[i] - p1[i];
+    }
 
     std::cout << "Последовательность П2: " << std::endl;
     print(p2);
+    std::cout << std::endl;
+    std::cout << "Последовательность П3: " << std::endl;
+    print(p3);
     return EXIT_SUCCESS;
 }
 
