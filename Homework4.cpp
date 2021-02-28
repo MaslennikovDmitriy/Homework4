@@ -2,6 +2,7 @@
 #include <clocale>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 
 void print(std::vector<int> v)
 {
@@ -112,6 +113,9 @@ int main()
     {
         p2[i] = rand() % 100;
     }
+
+    int p2_sum = std::accumulate(std::begin(p2), std::end(p2), 0, [](int sum, int elem) {return sum += elem; });
+    std::cout << "Сумма элементов П2: " << p2_sum << std::endl;
 
     std::cout << "Последовательность П2: " << std::endl;
     print(p2);
